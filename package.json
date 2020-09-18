@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "react-dom": "^16.13.1"
   }
 }
