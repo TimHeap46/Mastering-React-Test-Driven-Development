@@ -8,7 +8,17 @@ describe('Appointment', () => {
         const component = <Appointment customer={customer} />
         const container = document.createElement('div');
 
-        ReactDOM.render(component,container);
-        expect(document.body.textContent).toMatch('Ashley');
+        ReactDOM.render(<Appointment customer={customer} />, container);
+        expect(container.textContent).toMatch('Ashley');
+    });
+
+    it('renders another first name', () => {
+       const customer = {firstName: 'Jordan' };
+       const component = <Appointment customer={customer} />;
+       const container = document.createElement('div');
+       document.body.appendChild(container);
+
+      ReactDOM.render(<Appointment customer={customer} />,container);
+      expect(document.body.textContent).toMatch('Jordan');	
     });
 });
