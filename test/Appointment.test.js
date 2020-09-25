@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Appointment} from '../src/Appointment';
+import {Appointment, AppointmentsDayView} from '../src/Appointment';
 
 let container;
 let customer;
@@ -23,4 +23,20 @@ describe('Appointment', () => {
       ReactDOM.render(<Appointment customer={customer} />,container);
       expect(document.body.textContent).toMatch('Jordan');	
     });
+});
+
+describe('AppointmentsDayView', () => {
+    let container;
+
+    beforeEach(() => {
+        container = document.createElement('div');
+    });
+
+    const render = component => 
+        ReactDOM.render(component,container);
+
+    it('renders a div with the right id', () => {
+        render(<AppointmentsDayView appointments={[]} />);
+        expect(container.querySelector('div#appointmentsDayView')).not.toBeNull();
+    })
 });
